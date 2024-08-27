@@ -1,10 +1,28 @@
-let currentIndex = 2;  // Start with the last file (e.g., 00000003.md)
-    const totalFiles = 2;  // Adjust this based on the number of markdown files you have
+const baseURL = 'https://shalperin.github.io/microblog/microblogs/';
+
     const folderPath = '/microblogs/';
 
     function loadMarkdown(index) {
-        const filePath = `${folderPath}${String(index).padStart(8, '0')}.md`;
+        /* I'm going to guess that
+        ```
+        python3 -m http.server
+        ```
+        does not allow the parent directory or a random path to be served?
+        
+        const filePath = `./life.md` // that's ok
 
+        const filePath = `../death.md` // is correctly a network error.
+
+        */
+
+        console.log(prod)
+        var filePath = ""
+        if (prod) {
+            filePath = `${baseURL}${String(index).padStart(8, '0')}.md`;
+        } else {
+            filePath = `${folderPath}${String(index).padStart(8, '0')}.md`;
+        }
+        console.log(filePath)
         fetch(filePath)
             .then(response => {
                 if (!response.ok) {
