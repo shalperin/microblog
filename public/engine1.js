@@ -1,4 +1,3 @@
-//const baseURL = 'https://microblog-e0839.web.app/microblogs/';
 const baseURL = `${window.location.origin}/microblogs/`;
 const totalFiles = currentIndex;  // Adjust this based on the number of markdown files you have
 
