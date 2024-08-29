@@ -1,3 +1,4 @@
+const rootURL = `${window.location.origin}`
 const baseURL = `${window.location.origin}/microblogs/`;
 const totalFiles = currentIndex;  // Adjust this based on the number of markdown files you have
 
@@ -86,6 +87,11 @@ document.getElementById('back-button').addEventListener('click', () => {
     }
 });
 
+document.getElementById('goHome').addEventListener('click', () => {
+    window.location.replace(rootURL)
+    history.replaceState({}, "", rootURL);
+});
+
 console.log("adding hash change listener")
 window.addEventListener('hashchange', hashChange)
 
@@ -93,7 +99,7 @@ window.addEventListener('hashchange', hashChange)
 let index = getHashState()
 if (index === undefined) {
     console.log("It looks like we tried to load the blog root.")
-    pushHash(currentIndex)
+    loadPost(currentIndex)
 } else {
     console.log(`it looks like we tried to load a specfic page index is ${index}`)
     currentIndex = index
