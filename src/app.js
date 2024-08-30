@@ -1,6 +1,26 @@
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
+import hljs from 'highlight.js';
+
+
+
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang, info) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      console.log (`highlighting ${language}`)
+      return hljs.highlight(code, { language }).value;
+    }
+  })
+);
+
 const rootURL = `${window.location.origin}`
 const baseURL = `${window.location.origin}/microblogs/`;
 const totalFiles = currentIndex;  // Adjust this based on the number of markdown files you have
+
+
+console.log("microblog starting up")
 
 const folderPath = '/microblogs/';
 

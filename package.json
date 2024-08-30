@@ -1,0 +1,19 @@
+{
+  "name": "microblog2",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "copyfiles microblogs/**/* microblogs/*.* public && parcel --dist-dir public ",
+    "build": "parcel build --dist-dir public && copyfiles microblogs/**/* microblogs/*.* public",
+    "clean": "rm -rf public"
+  },
+  "devDependencies": {
+    "parcel": "latest"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "highlight.js": "^11.10.0",
+    "marked": "^14.1.0",
+    "marked-highlight": "^2.1.4"
+  }
+}
