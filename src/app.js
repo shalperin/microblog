@@ -107,7 +107,7 @@ document.getElementById('back-button').addEventListener('click', () => {
     }
 });
 
-document.getElementById('goHome').addEventListener('click', () => {
+document.getElementById('go-home').addEventListener('click', () => {
     window.location.replace(rootURL)
     history.replaceState({}, "", rootURL);
 });
