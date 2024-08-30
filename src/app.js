@@ -1,9 +1,9 @@
 import { Marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from 'highlight.js';
+import { microblogCount } from './counter2';
 
-
-
+let currentIndex = microblogCount
 const marked = new Marked(
   markedHighlight({
     langPrefix: 'hljs language-',
