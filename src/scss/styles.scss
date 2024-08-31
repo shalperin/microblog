@@ -23,30 +23,33 @@
   }
   
   /* Dark mode styles */
-//   @media (prefers-color-scheme: dark) {
-//     :root {
-//       --background: #252525;
-//       --markdown-content: #2d2d2d;
-//       --link: #1E90FF;
-//       --go-home: #afafaf;
-//       --code-background: var(--markdown-background);
-//       --selection: rgba(224, 146, 58, 0.35);
-//       --type: var(--string);
-//       --text: #d6d6d6;
-//       --string: #d55c4e;
-//       --number: #696CE4;
-//       --title: #067DB0;
-//       --built_in: #804FB8;
-//       --keyword: #AD3DA4;
-//       --function: #e0923a;
-//       --params: #508be5;
-//       --comment: #7f7f7f;
-//     }
-//   }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #252525;
+      --markdown-content: #2d2d2d;
+      --link: #1E90FF;
+      --go-home: #afafaf;
+      --code-background: var(--markdown-background);
+      --selection: rgba(224, 146, 58, 0.35);
+      --type: var(--string);
+      --text: #d6d6d6;
+      --string: #d55c4e;
+      --number: #696CE4;
+      --title: #067DB0;
+      --built_in: #804FB8;
+      --keyword: #AD3DA4;
+      --function: #e0923a;
+      --params: #508be5;
+      --comment: #7f7f7f;
+    }
+  }
   
-//   #branding {
-//     font-size:3rem;
-//   }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+  }
+  
   #markdown-content {
     max-width: 900px;
     h1 {
@@ -61,11 +64,6 @@
 
   
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-  }
   
   
   button:disabled {
