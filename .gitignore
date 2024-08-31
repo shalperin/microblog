@@ -1,6 +1,7 @@
 node_modules/
 public/
 .parcel-cache/
+.DS_Store
 
 # Logs
 logs
