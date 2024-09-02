@@ -54,17 +54,21 @@
     max-width: 900px;
     h1 {
         margin-bottom:20px;
-        text-decoration: underline;
+        font-size:18pt;
     }
     h2 {
-        font-size:1rem;
+        font-size:14pt;
         margin-bottom:20px;
+    }
+    h3 {
+      font-size: 12pt;
+      font-weight:bold;
     }
   }
 
-  
-  
-  
+  #nav {
+    max-width:900px;
+  }
   
   button:disabled {
     opacity: 0.5;
