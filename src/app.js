@@ -21,6 +21,8 @@ const baseURL = `${window.location.origin}/microblogs/`;
 const totalFiles = currentIndex;  // Adjust this based on the number of markdown files you have
 const folderPath = '/microblogs/';
 
+var authorTemplate;
+
 function pushHash(index) {
     let state = `/post/${index}`
     console.log(`pushing or repushing hash ${state}`)
@@ -47,6 +49,22 @@ function getHashState() {
     }
 }
 
+function getDateFromH2() {
+    let h2Element = document.querySelector('h2');   
+    let dateText = h2Element.innerText;
+    console.log(`dateText is ${dateText}`)
+    return dateText;
+}
+
+function mungeDateInjectAuthors() {
+    let date = getDateFromH2();
+    console.log(`date is ${date}`)
+    const dateElement = authorTemplate.querySelector('#date'); 
+    dateElement.innerText = date
+    authorTemplate.classList.remove('d-none');
+    const h1Element = document.querySelector('h1');
+    h1Element.insertAdjacentElement('afterend', authorTemplate);
+}
 
 function loadPost(index) {
     console.log(`trying to load  post ${index}`)
@@ -67,6 +85,9 @@ function loadPost(index) {
         .then(markdown => {
             document.getElementById('markdown-content').innerHTML = marked.parse(markdown);
             updateButtons()
+            mungeDateInjectAuthors();
+            scrollTop();
+
         })
         .catch(error => {
             console.error('Error fetching markdown file:', error);
@@ -106,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentIndex--;
                 pushHash(currentIndex);
             }
-            scrollTop();
         });
     });
 
@@ -118,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentIndex++;
                 pushHash(currentIndex)
             }
-            scrollTop();
         });
     });
 
@@ -135,4 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = index
         loadPost(currentIndex)
     }
+
+    authorTemplate = document.getElementById('author-template');
+    
 })
